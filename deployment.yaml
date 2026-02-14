@@ -24,9 +24,8 @@ spec:
           - containerPort: 3000
             name: http
             protocol: TCP
-      env:
-        - name: mongo-db-creds
-          valueFrom:
-            secretKeyRef:
-              name: mongo-db-creds
-              key: MONGO_URI
+
+        envFrom:
+          - secretRef:
+            name: mongo-db-cred
+
